@@ -182,6 +182,19 @@ ol {
   flex-wrap: wrap;
   font-size: 13px;
 }
+.author-credit {
+text-align: center;
+color: var(--muted);
+font-size: 13px;
+margin: 25px 0 5px;
+width: 100%;
+}
+
+.author-credit span {
+color: #8ee4bc;
+font-weight: 700;
+}
+
 @media (max-width: 800px) {
   .layout {
     grid-template-columns: 1fr;
