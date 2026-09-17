@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gesture Ludo — You vs Computer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>🎲 Gesture Ludo</h1>
+  <p class="subtitle">You 🔴 vs Computer 🟢 · Choose your dice with your hand</p>
+
+  <div class="layout">
+    <section>
+      <div class="card">
+        <canvas id="board" width="750" height="750"
+          aria-label="Ludo board showing red and green numbered pieces">
+        </canvas>
+        <div class="legend">
+          <span>🔴 Your pieces: 1–4</span>
+          <span>🟢 Computer</span>
+          <span>★ Safe cell</span>
+          <span>Gold outline = valid piece</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="row">
+          <div>
+            <span id="turn" class="badge">READY</span>
+            <div id="instruction" role="status" aria-live="polite">
+              Start camera to play.
+            </div>
+          </div>
+          <div id="dice" aria-label="Dice result">–</div>
+        </div>
+        <div id="score" class="muted"></div>
+      </div>
+
+      <div class="card">
+        <strong>Game activity</strong>
+        <div id="log"></div>
+      </div>
+    </section>
+
+    <aside>
+      <div class="card">
+        <div class="controls">
+          <button id="start" class="primary">📷 Start Camera</button>
+          <button id="reset" class="secondary">Restart Game</button>
+        </div>
+
+        <div class="camera">
+          <video id="video" autoplay muted playsinline></video>
+          <div id="handLabel" class="camera-label">Camera not started</div>
+        </div>
+
+        <div class="track"><div id="holdBar"></div></div>
+        <p id="cameraStatus" class="muted">
+          Camera permission will be requested when you press Start.
+        </p>
+      </div>
+
+      <div class="card">
+        <strong>✋ Gesture controls</strong>
+        <ol>
+          <li>Show <b>1–5 fingers</b> to choose dice 1–5.</li>
+          <li>Show a <b>closed fist</b> to choose 6.</li>
+          <li>Keep the gesture steady for about <b>1.1 seconds</b>.</li>
+          <li>Remove your hand from the camera.</li>
+          <li>Show <b>1–4 fingers</b> to select a numbered piece.</li>
+          <li>The piece moves automatically if the move is valid.</li>
+        </ol>
+        <p class="muted">
+          Use one hand, face your palm toward the camera and keep fingers
+          separated. For 1–4, keep the thumb folded.
+        </p>
+      </div>
+
+      <div class="notice">
+        Custom mode: you choose your dice; the computer gets a random dice.
+        Six opens a piece and grants another turn. Safe cells prevent captures.
+        No blockades, capture bonus turns or three-sixes penalty.
+      </div>
+    </aside>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
